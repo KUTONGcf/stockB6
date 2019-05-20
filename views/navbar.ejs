@@ -1,0 +1,35 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+  <a class="navbar-brand" href="/">股票信息系统</a>
+  <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="navbar-collapse collapse" id="navbarCollapse" style="">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="/stockquery">股票代码查询</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/candlestickchart">股票 K 线图服务</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/downloads">股票交易客户端下载</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#">施工中</a>
+      </li>
+    </ul>
+    <% if (!locals.user) { %>
+    <div class="btn-group">
+      <a href="/login" role="button" class="btn btn-outline-success mt-2 mt-md-0">登陆</a>
+      <a href="/signup" role="button" class="btn btn-outline-success mt-2 mt-md-0">注册</a>
+    </div>
+    <% } else { %>
+    <div class="navbar-nav">
+    <span class="nav-item nav-link"> 您好 <%= locals.user.email %> </span>
+    <div class="btn-group nav-item">
+      <a href="/logout" role="button" class="btn btn-outline-success mt-2 mt-md-0" >登出</a>
+    </div>
+    </div>
+    <% } %>
+  </div>
+</nav>
